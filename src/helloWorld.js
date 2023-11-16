@@ -1,11 +1,22 @@
 function greet (names) {
   const defaultValue = 'Hello, my friend.'
   let defaultValueArray = 'Hello, '
+  let defaultAnd = 'and'
   const defaultValueUppercase = 'HELLO, '
 
   if (Array.isArray(names)) {
     const normalNames = []
     const upperNames = []
+
+    //let hello = "Hello";  
+    //let and = "and";
+
+    const chosenLanguage = getLanguage(names);  // should get 'fr' / 'nl' / 'en'
+    if(chosenLanguage){
+      const language = setLanguage(chosenLanguage);   // return an array with [0] being Hello, etc and [1] being and, etc
+      defaultValueArray = language[0];
+      defaultAnd = language[1];   
+    }
 
     for (let i = 0; i < names.length; i++) {
       if (nameIsInUpperCase(names[i])) {
@@ -21,7 +32,7 @@ function greet (names) {
       } else {
         const AllButLast = normalNames.slice(0, -1)
         const last = normalNames.slice(-1)
-        defaultValueArray += AllButLast.join(', ') + ' and ' + last + '.'
+        defaultValueArray += AllButLast.join(', ') + ' ' + defaultAnd + ' ' + last + '.'
       }
     }
 
@@ -49,6 +60,33 @@ function nameIsValid (name) {
 function nameIsInUpperCase (name) {
   if (name === name.toUpperCase()) return true
   return false
+}
+
+function getLanguage (names){
+  for(let i=0;i < names.length; i++){
+    if(names[i] === 'fr'){
+      names.splice(i,1);
+      return 'fr'
+    }
+    else if(names[i] === 'en'){
+      names.splice(i,1);
+      return 'en'
+    }
+    else if(names[i] === 'nl'){
+      names.splice(i,1);
+      return 'nl'
+    }
+  }
+  return null;
+}
+
+function setLanguage (language){
+  if(language === 'fr')
+    return ["Bonjour, ", "et"];
+  else if(language === 'en')
+    return ["Hello, ", "and"];
+  else if(language === 'nl')
+    return ["Dag, ", "en"];
 }
 
 module.exports = { greet }
