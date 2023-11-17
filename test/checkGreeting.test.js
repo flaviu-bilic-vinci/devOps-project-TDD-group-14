@@ -70,11 +70,13 @@ test('n°6: greet function to return "Hello, Kratos and Thanathos. AND HELLO DUC
 test('n°6.1: greet function to return "Hello, Kratos and Thanathos. AND HELLO, DUCK, LEN AND JOJO!" if there are 2 names in lowercase and 3 in uppercase given in an array', () => {
   const names = ['Kratos', 'Thanathos', 'DUCK', 'LEN', 'JOJO']
   const result = greet(names)
-  expect(result).toBe('Hello, Kratos and Thanathos. AND HELLO, DUCK, LEN, JOJO!')
+  expect(result).toBe(
+    'Hello, Kratos and Thanathos. AND HELLO, DUCK, LEN, JOJO!'
+  )
 })
 
 test('n°7: greet function in given language', () => {
-   const names = ['Kratos', 'Thanathos', 'fr']
-   const result = greet(names);
-   expect(result).toBe('Bonjour, Kratos et Thanathos.')
+  const names = ['Kratos', 'Thanathos', 'fr']
+  const result = greet(names)
+  expect(result).toBe('Bonjour, Kratos et Thanathos.')
 })

@@ -8,14 +8,14 @@ function greet (names) {
     const normalNames = []
     const upperNames = []
 
-    //let hello = "Hello";  
-    //let and = "and";
+    // let hello = "Hello";
+    // let and = "and";
 
-    const chosenLanguage = getLanguage(names);  // should get 'fr' / 'nl' / 'en'
-    if(chosenLanguage){
-      const language = setLanguage(chosenLanguage);   // return an array with [0] being Hello, etc and [1] being and, etc
-      defaultValueArray = language[0];
-      defaultAnd = language[1];   
+    const chosenLanguage = getLanguage(names) // should get 'fr' / 'nl' / 'en'
+    if (chosenLanguage) {
+      const language = setLanguage(chosenLanguage) // return an array with [0] being Hello, etc and [1] being and, etc
+      defaultValueArray = language[0]
+      defaultAnd = language[1]
     }
 
     for (let i = 0; i < names.length; i++) {
@@ -32,12 +32,14 @@ function greet (names) {
       } else {
         const AllButLast = normalNames.slice(0, -1)
         const last = normalNames.slice(-1)
-        defaultValueArray += AllButLast.join(', ') + ' ' + defaultAnd + ' ' + last + '.'
+        defaultValueArray +=
+                    AllButLast.join(', ') + ' ' + defaultAnd + ' ' + last + '.'
       }
     }
 
     if (upperNames.length > 0) {
-      defaultValueArray += ' AND ' + defaultValueUppercase + upperNames.join(', ') + '!'
+      defaultValueArray +=
+                ' AND ' + defaultValueUppercase + upperNames.join(', ') + '!'
     }
 
     return defaultValueArray
@@ -62,31 +64,26 @@ function nameIsInUpperCase (name) {
   return false
 }
 
-function getLanguage (names){
-  for(let i=0;i < names.length; i++){
-    if(names[i] === 'fr'){
-      names.splice(i,1);
+function getLanguage (names) {
+  for (let i = 0; i < names.length; i++) {
+    if (names[i] === 'fr') {
+      names.splice(i, 1)
       return 'fr'
-    }
-    else if(names[i] === 'en'){
-      names.splice(i,1);
+    } else if (names[i] === 'en') {
+      names.splice(i, 1)
       return 'en'
-    }
-    else if(names[i] === 'nl'){
-      names.splice(i,1);
+    } else if (names[i] === 'nl') {
+      names.splice(i, 1)
       return 'nl'
     }
   }
-  return null;
+  return null
 }
 
-function setLanguage (language){
-  if(language === 'fr')
-    return ["Bonjour, ", "et"];
-  else if(language === 'en')
-    return ["Hello, ", "and"];
-  else if(language === 'nl')
-    return ["Dag, ", "en"];
+function setLanguage (language) {
+  if (language === 'fr') return ['Bonjour, ', 'et']
+  else if (language === 'en') return ['Hello, ', 'and']
+  else if (language === 'nl') return ['Dag, ', 'en']
 }
 
 module.exports = { greet }
