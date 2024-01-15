@@ -1,8 +1,10 @@
 # devOps-project-TDD-group-14
+
 Eleves Participant A Ce Projet:
-- Ailenei Robert Stefan
-- Bilic Flaviu
-- Gregoire Lucas
+
+-   Ailenei Robert Stefan
+-   Bilic Flaviu
+-   Gregoire Lucas
 
 ## Installation
 
